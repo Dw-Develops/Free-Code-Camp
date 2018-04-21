@@ -1,0 +1,39 @@
+body {
+  background-image:  url('http://i63.tinypic.com/24qpiqh.jpg');
+  color: gold;
+}
+h1 {
+  font-size: 65px;
+}
+
+
+h2 {
+  text-align: center;
+  background-color: black;
+  color: gold;
+  font-size: 40px;
+}
+h3 {
+  background-color: black;
+  text-align: center;
+}
+
+#controls {
+  
+  background-color: black;
+}
+button {
+  margin-left: 98%;
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  
+}
+#display {
+  background-color: black;
+}
+#display1 {
+  background-color: black;
+}

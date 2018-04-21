@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Timer FCC</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap-grid.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+
+<audio id="sound">
+  <source src="http://www.pacdv.com/sounds/interface_sound_effects/sound17.mp3" type="audio/mp3">
+</audio>
+<audio id="sound1">
+  <source src="http://www.pacdv.com/sounds/domestic_sound_effects/wine-glass-clink-1.wav" type="audio/mp3">
+</audio>
+
+<h1 align="center">Free Code Camp Pomodoro Timer</h1>
+<h3>Free Code Camp Advanced </h3>
+<h3>Front End Development Projects</h3>
+
+  <h2 id="timeType"></h2>
+<h1 id="display" align="center">25</h1>
+<div class="row" id="controls">
+  <div class="col-sm-3">
+    <button id= "addOne" onclick= "addOne()">+</button>
+  </div>
+  <div class="col-sm-3">
+    <button id= "start" align="center" onclick= "startTimer()">Start</button>
+    <button id="reset" onclick= "reset()">Reset</button>
+  </div>
+  <div class="col-sm-3">
+    <button id= "subtractOne" onclick= "subtractOne()">-</button>
+  </div>
+</div>
+
+
+
+
+<h1 id="display1" align="center">5</h1>
+
+
+
+
+
+<div class="row" id="controls2">
+  <div class="col-sm-3">
+    <button id= "addOneBr" onclick= "addOneBr()">+</button>
+  </div>
+  <div class="col-sm-3">
+    <button id= "startBr" align="center" onclick= "runBreakTimer()">Start</button>
+    
+  </div>
+  <div class="col-sm-3">
+    <button id= "subtractOneBr" onclick= "subtractOneBr()">-</button>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simon Says Game Fcc Advanced Front-End</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <audio id="sound1">
+  <source src="http://www.pacdv.com/sounds/interface_sound_effects/sound93.wav" type="audio/mp3">
+</audio>
+
+<audio id="sound2">
+  <source src="http://www.pacdv.com/sounds/interface_sound_effects/sound95.wav" type="audio/mp3">
+</audio>
+
+<audio id="sound3">
+  <source src="http://www.pacdv.com/sounds/interface_sound_effects/sound98.wav" type="audio/mp3">
+</audio>
+
+<audio id="sound4">
+  <source src="http://www.pacdv.com/sounds/interface_sound_effects/sound113.wav" type="audio/mp3">
+</audio>
+
+<audio id="sound5">
+  <source src="http://www.pacdv.com/sounds/people_sound_effects/ahhh.mp3" type="audio/mp3">
+</audio>
+
+<audio id="sound6">
+  <source src="http://www.pacdv.com/sounds/people_sound_effects/you_got_it_1.wav" type="audio/mp3">
+</audio>
+
+
+
+
+<div class = "container-fluid" id= "simonBody">
+   <div id= "controlPanel">
+     <h1 id= "gname">Simon</h1>
+     <h2 id= "roundsCounter" align= "center">00</h2>
+   <button id= "strict">Strict</button>
+     
+     
+     
+   <button id= "start" onclick= "startGame()">Start</button>
+     <button id= "reset" onclick= "startGame()">Reset</button>
+     
+   </div>
+  
+  <div class= "row">
+  
+    
+    <h1 id= "green" class= "pad" onclick= "userTurn(this)"></h1>
+  
+    <h1 id= "red" class= "pad" onclick="userTurn(this)"></h1>
+ 
+   <h1 id= "yellow" class= "pad" onclick="userTurn(this)"></h1>
+  
+  
+  
+  
+  <h1 id= "blue" class= "pad" onclick="userTurn(this)"></h1>
+  
+</div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
