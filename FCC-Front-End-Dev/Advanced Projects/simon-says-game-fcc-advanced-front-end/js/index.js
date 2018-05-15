@@ -4,61 +4,30 @@ var z = document.getElementById("sound3");
 var w = document.getElementById("sound4");
 var u = document.getElementById("sound5");
 var v = document.getElementById("sound6");
-var r;
 
 var turns;
 var rounds;
-var maxRounds = 5;
-
-var pcPlay;
-var pcPlays;
+var maxRounds;
 var playerTurn= false;
-var pcTurn= false;
+var pcTurn;
 var plays = [1, 2, 3, 4];
-var gameSequence = [[3], [3, 4], [3, 4, 2], [3, 4, 2, 4], [3, 4, 2, 4, 1]];
 
 var userSequence = [];
 var pcSequence = [];
 
-
-
-
-
-
-function startGame() {
- console.log("Starting........")
-  pcPlays = true;
-  pcTurn = true;
-  //playerTurn = false;
-  rounds= 1;
- turns = 1;
-   userSequence = [];
-   pcSequence = [];
-  //var pcPlay = Math.floor(Math.random() *4 +1); 
- 
-  //console.log("pcPlay = " + pcPlay);
-  console.log(gameSequence);
-      compTurn();
-}
-
-
-  
-  
- function red() {
+function red() {
   x.play();
   document.getElementById("red").style.visibility = "hidden";  
 
    setTimeout(redOn, 500);
 
 }
-    
 function redOn() {
   document.getElementById("red").style.visibility = "visible"; 
-  
-inRounds();
+
+   turn();
 }
-  
-    
+
 function yellow() {
   y.play();
   document.getElementById("yellow").style.visibility = "hidden";  
@@ -66,14 +35,11 @@ function yellow() {
    setTimeout(yellowOn, 500);
 
 }
-      
-    
 function yellowOn() {
   document.getElementById("yellow").style.visibility = "visible"; 
- inRounds();
+  turn();
 }
-  
-    
+
 function green() {
   w.play();
   document.getElementById("green").style.visibility = "hidden";  
@@ -81,15 +47,11 @@ function green() {
    setTimeout(greenOn, 500);
 
 }
-      
-    
 function greenOn() {
   document.getElementById("green").style.visibility = "visible"; 
- inRounds();
+ turn();
 }
-  
 
-    
 
 function blue() {
   z.play();
@@ -98,113 +60,114 @@ function blue() {
    setTimeout(blueOn, 500);
 
 }
-      
-    
 function blueOn() {
   document.getElementById("blue").style.visibility = "visible"; 
- inRounds();
+  turn();
+}
+
+
+function startGame() {
+  pcTurn = true;
+ console.log(pcTurn);
+  rounds= 0;
+  maxRounds = 5;
+   userSequence = [];
+   pcSequence = [1, 3, 3, 4, 2, 1];
+  
+  var a = Math.floor(Math.random() *4 +1);
+    pcSequence.push(a);
+  
+  setTimeout(red, 100);
+  setTimeout(green, 1100);
+  setTimeout(yellow, 2100);
+  setTimeout(blue, 3200);
+  setTimeout(compTurn, 6200);
   
 }
- 
-  
-  function inRounds() {
-    if(rounds > 5) {
-      rounds = rounds +1;
-      document.getElementById("counter").value= rounds;
-      compTurn();
-    } else {
-      console.log("Game Over!");
-      playerturn = true;
-      userTurn();
-    }
-    
-  }
 
 
 
 function compTurn() {
-  if(pcTurn === true) {
-  console.log("Simon goes first.......");
-   
-    let a = Math.floor(Math.random() *4 +1);
-    console.log(a);
-    if(a === 1){
-      red();
-    } else if(a === 2) {
-      green();
-    } else if(a === 3) {
-      yellow();
-    } else if(a === 4) {
-      blue();
-    }
-    
-  } else {
-    
-    userTurn();
-  }
-}
   
+  console.log(pcSequence);
+   if(pcTurn === true) {
+     
+     document.getElementById('rounds').innerHTML= rounds;
+ var a = Math.floor(Math.random() *4 +1); 
+    //console.log(a);
+    if(a === 1) {
+      
+      setTimeout(red, 500);
+      //red();
+    } else if(a === 2) {
+      
+      setTimeout(green, 500);
+      //green();
+    } else if(a === 3) {
+       
+      setTimeout(yellow, 500);
+      //yellow();
+    } else if(a === 4) {
+    
+      setTimeout(blue, 500);
+      //blue();
+    }
+      pcSequence.push(a);
+      a = "";
+  console.log("pcSequence: " + pcSequence);
+ 
+    pcTurn = false;
+     playerTurn = true;
+    
+  console.log('playerTurn' + playerTurn);
+  console.log('pcTurn' + pcTurn);
+}
+}
 
 
 
 function userTurn(pad) {
- console.log("User goes next.........")
-  var x = pad.id;
-  var cNum;
+  var b = pad.id;
+ rounds = rounds +1;
   if(playerTurn === true) {
- if(x === "red") {
-   cNum = 1;
-   userSequence.push(y);
+ if(b === "red") {
+   b = 1;
+   userSequence.push(b);
     red();
- } else if(x === "green") {
-   cNum = 2;
-   userSequence.push(y);
+ } else if(b === "green") {
+   b = 2;
+   userSequence.push(b);
    green();
- } else if(x === "yellow"){
-   cNum = 3;
-   userSequence.push(y);
+ } else if(b === "yellow"){
+   b = 3;
+   userSequence.push(b);
    yellow();
- } else if(x === "blue") {
-    cNum = 4;
-   userSequence.push(y);
+ } else if(b === "blue") {
+   b = 4;
+   userSequence.push(b);
    blue();
  }
-    turns = turns -1;
-    console.log(userSequence);
-    setTimeout(userTurn, 1000);
-  }
-  playerTurn = false;
-  console.log("Comp Turn = True")
-    pcTurn = true;
-  turns = rounds;
-    inRounds();
-  } 
-  
-
-
-
-
-
-
-function checkAccuracy() {
-  if (rounds => 5) {
-  console.log ("Checking Accuracy..................");
-  rounds = rounds +1;
-  //turns = rounds;
-  setTimeout(compTurn, 1800);
-  } 
     
-  
-  
-   else {
+    console.log('userSequence: ' + userSequence);
     
-    y.play();
-     endGame();
-  }
+  } 
+  setTimeout(checkAccuracy, 500);
 }
 
-function endGame() {
+function checkAccuracy() {
+  console.log('working');
+  if(userSequence[0] === pcSequence[0]) {
+    console.log('Its a match!');
+  }
+  pcTurn = true;
   playerTurn = false;
-  pcTurn = false;
-  console.log("Game Over!");
+  console.log('pcTurn: ' + pcTurn);
+  setTimeout(compTurn, 500);
+}
+
+function reset() {
+  rounds= 0;
+  document.getElementById('rounds').innerHTML= rounds;
+  
+  
 }
